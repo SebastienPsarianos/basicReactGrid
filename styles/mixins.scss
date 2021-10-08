@@ -1,0 +1,26 @@
+@import "./variables";
+
+@mixin up($breakpoint) {
+    @if ($breakpoint == $sm-breakpoint) {
+        @media (min-width: $sm-breakpoint) {
+            @content;
+        }
+    }
+    @if ($breakpoint == $md-breakpoint) {
+        @media (min-width: $md-breakpoint) {
+            @content;
+        }
+
+    }
+    @if ($breakpoint == $lg-breakpoint) {
+        @media (min-width: $lg-breakpoint) {
+            @content;
+        }
+
+    }
+    @if ($breakpoint == $xl-breakpoint) {
+        @media (min-width: $xl-breakpoint) {
+            @content;
+        }
+    }
+}

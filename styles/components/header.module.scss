@@ -1,13 +1,7 @@
 @import "../variables";
 
 .header {
-    color: $black;
     background: $darkShade;
-    padding: 20px;
-    border-radius: $borderRadius;
+    padding: $md-spacing;
     text-align: center;
-    
-}
-.green {
-    color: green;
 }

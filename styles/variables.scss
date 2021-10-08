@@ -1,7 +1,36 @@
+$borderRadius: 12px;
+
+// Spacing
+$sm-spacing: 12px;
+$md-spacing: 20px;
+$lg-spacing: 40px;
+$xl-spacing: 80px;
+$xxl-spacing: 120px;
+
+//Breakpoints 
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
+$xxl-breakpoint: 1400px;
+
+// Content width
+$mobile-content-width: calc(100% - $md-spacing * 2);
+$sm-content-width: calc($sm-breakpoint - $md-spacing * 2);
+$md-content-width: calc($md-breakpoint - $md-spacing * 2);
+$lg-content-width: calc($lg-breakpoint - $md-spacing * 2);
+$xl-content-width: calc($xl-breakpoint - $lg-spacing * 2);
+$xxl-content-width: calc($xxl-breakpoint - $lg-spacing * 2);
+
+// Colours
 $gray: #ACADBC;
 $lightShade: #9B9ECE;
 $midShade: #6665DD;
 $darkShade: #473BF0;
 $black: #000500;
 
-$borderRadius: 20px;
+$text: $black;
+
+//Font sizes
+$baseFontSizeSm: 18px;
+$baseFontSizeLg: 22px;
