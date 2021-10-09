@@ -1,6 +1,9 @@
-@import "variables";
+@use "sass:map";
+
+@import "./variables.scss";
+@import "./mixins.scss";
+
 body {
-    color: $text;
     margin: 0;
     padding: 0;
 }

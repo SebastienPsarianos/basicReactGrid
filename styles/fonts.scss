@@ -1,16 +1,19 @@
-@import './mixins.scss';
-@import './variables.scss';
+@use "sass:map";
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import "./variables.scss";
+@import "./mixins.scss";
 
 * {
     font-family: 'Lato', sans-serif;
 }
 
 html {
-    font-size: $baseFontSizeSm;
-    @include up($lg-breakpoint) {
-        font-size: $baseFontSizeLg;
-    }
+    font-size: map.get($fontSizes, "sm");
+    @include up("lg") {
+        font-size: map.get($fontSizes, "lg");
+   } 
 }
 
 h1 {

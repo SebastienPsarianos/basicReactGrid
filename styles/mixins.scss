@@ -1,26 +1,32 @@
-@import "./variables";
+@use "sass:map";
+@import "./variables.scss";
 
 @mixin up($breakpoint) {
-    @if ($breakpoint == $sm-breakpoint) {
-        @media (min-width: $sm-breakpoint) {
-            @content;
-        }
+    @media (min-width: map.get($breakpoints, $breakpoint)) { 
+        @content;
     }
-    @if ($breakpoint == $md-breakpoint) {
-        @media (min-width: $md-breakpoint) {
-            @content;
-        }
+}
 
-    }
-    @if ($breakpoint == $lg-breakpoint) {
-        @media (min-width: $lg-breakpoint) {
-            @content;
+@mixin breakpointPropClasses($baseClassName, $breakpointOptions) { 
+    //Default Breakpoint (< 556px)
+    @each $breakpointOption, $breakpointOptionStyle in $breakpointOptions {
+        .#{$baseClassName}-#{breakpointOption} {
+            @each $breakpointStyleName, $breakpointStyleValue in $breakpointOptionStyle {
+                $breakpointStyleName: $breakpointStyleValue;
+            }
         }
-
     }
-    @if ($breakpoint == $xl-breakpoint) {
-        @media (min-width: $xl-breakpoint) {
-            @content;
+
+    // All other breakpoints
+    @each $breakpointName, $breakpointValue in $breakpoints {
+        @each $breakpointOption, $breakpointOptionStyle in $breakpointOptions {
+            .#{$breakpointName}-#{$baseClassName}-#{breakpointOption} {
+                @media (min-width: $breakpointValue) {
+                    @each $breakpointStyleName, $breakpointStyleValue in $breakpointOptionStyle {
+                        $breakpointStyleName: $breakpointStyleValue;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,25 +1,28 @@
+@use "sass:map";
+
 @import "../variables.scss";
 @import "../mixins.scss";
  
 .contentWrapper {
-    background: $lightShade;
     & > * {
         margin: 0 auto;
-        max-width: $mobile-content-width;
-        @include up($sm-breakpoint) {
-            max-width: $sm-content-width; 
+        background: green;
+        max-width: map.get($breakpoints, "default");
+
+        @include up("sm") {
+            max-width: map.get($contentWidth, "sm"); 
         }
-        @include up($md-breakpoint) { 
-            max-width: $md-content-width; 
-        }    
-        @include up($lg-breakpoint) { 
-            max-width: $lg-content-width; 
-        }   
-        @include up($xl-breakpoint) { 
-            max-width: $xl-content-width; 
+        @include up("md") {
+            max-width: map.get($contentWidth, "md"); 
         }
-        @include up($xxl-breakpoint) {
-            max-width: $xxl-breakpoint;
+        @include up("lg") {
+            max-width: map.get($contentWidth, "lg"); 
+        }
+        @include up("xl") {
+            max-width: map.get($contentWidth, "xl"); 
+        }
+        @include up("xxl") {
+            max-width: map.get($contentWidth, "xxl"); 
         }
     }
 }
