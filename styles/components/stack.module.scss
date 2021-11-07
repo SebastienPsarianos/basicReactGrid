@@ -1,12 +1,38 @@
+@use "sass:map";
+
 @import "../variables.scss";
 @import "../mixins.scss";
  
-
-$baseClassName: 'stack';
-$breakpointOptions: (
+$propStyles: (
+    "sm": (
+        "child": (
+            "padding-bottom": map.get($spacing, "sm")
+        )
+    ),
     "md": (
-        "background": green
+        "child": (
+            "padding-bottom": map.get($spacing, "md")
+        )    
+    ),
+    "lg": (
+        "child": (
+            "padding-bottom": map.get($spacing, "lg")
+        )    
+    ),
+    "xl": (
+        "child": (
+            "padding-bottom": map.get($spacing, "xl")
+        )    
+    ),
+    "xxl": (
+        "child": (
+            "padding-bottom": map.get($spacing, "xxl")
+        )    
     )
 );
 
-@include breakpointPropClasses($baseClassName, $breakpointOptions);
+.stack {
+    color: black;
+}
+
+@include breakpointPropClasses('stack', $propStyles);

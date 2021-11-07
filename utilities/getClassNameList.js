@@ -8,10 +8,12 @@
 
 export const getClassNameList = (breakpoints, baseClassName) => {
     if (typeof breakpoints === "object") {
-        return Object.keys(breakpoints).map(
-            (breakpoint) =>
-                `${breakpoint}-${baseClassName}-${breakpoints[breakpoint]} `
-        )
+        return Object.keys(breakpoints).map((breakpoint) => {
+            if (breakpoint === "default") {
+                return `${baseClassName}-${breakpoints[breakpoint]}`
+            }
+            return `${breakpoint}-${baseClassName}-${breakpoints[breakpoint]}`
+        })
     } else {
         return [`${baseClassName}-${breakpoints}`]
     }

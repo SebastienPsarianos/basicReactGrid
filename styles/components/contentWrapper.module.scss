@@ -6,7 +6,7 @@
 .contentWrapper {
     & > * {
         margin: 0 auto;
-        background: green;
+        background: map.get($colors, "lightShade");
         max-width: map.get($breakpoints, "default");
 
         @include up("sm") {

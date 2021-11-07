@@ -1,12 +1,16 @@
-import stack from "../styles/components/stack.module.scss"
+import stackClasses from "../styles/components/stack.module.scss"
 import { getClassNameList } from "../utilities/getClassNameList"
+import { ContentWrapper } from "./ContentWrapper"
 
-export const Stack = ({ children, breakpoints = "md" }) => {
-    const classNameList = getClassNameList(breakpoints, "stack")
-        .map((className) => stack[className])
+export const Stack = ({ children, space = "md" }) => {
+    const classNameList = getClassNameList(space, "stack")
+        .map((className) => stackClasses[className])
         .join(" ")
 
-    console.log(classNameList, "test", getClassNameList(breakpoints), stack)
-
-    return <div className={classNameList}>{children}</div>
+    const { stack } = stackClasses
+    return (
+        <ContentWrapper>
+            <div className={stack + " " + classNameList}>{children}</div>
+        </ContentWrapper>
+    )
 }

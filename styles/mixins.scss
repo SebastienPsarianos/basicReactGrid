@@ -7,23 +7,33 @@
     }
 }
 
-@mixin breakpointPropClasses($baseClassName, $breakpointOptions) { 
+@mixin breakpointPropClasses($baseClassName, $propStyles) { 
     //Default Breakpoint (< 556px)
-    @each $breakpointOption, $breakpointOptionStyle in $breakpointOptions {
-        .#{$baseClassName}-#{breakpointOption} {
-            @each $breakpointStyleName, $breakpointStyleValue in $breakpointOptionStyle {
-                $breakpointStyleName: $breakpointStyleValue;
+    @each $propStyleName, $propStyle in $propStyles {
+        .#{$baseClassName}-#{$propStyleName} {
+            @each $baseProperty, $baseValue in map.get($propStyle, 'base') {
+                #{$baseProperty}: $baseValue;
+            }
+            @each $childProperty, $childValue in map.get($propStyle, 'child') {
+                & > * {
+                    #{$childProperty}: $childValue;
+                }
             }
         }
     }
 
     // All other breakpoints
     @each $breakpointName, $breakpointValue in $breakpoints {
-        @each $breakpointOption, $breakpointOptionStyle in $breakpointOptions {
-            .#{$breakpointName}-#{$baseClassName}-#{breakpointOption} {
+        @each $propStyleName, $propStyle in $propStyles {
+            .#{$breakpointName}-#{$baseClassName}-#{$propStyleName} {
                 @media (min-width: $breakpointValue) {
-                    @each $breakpointStyleName, $breakpointStyleValue in $breakpointOptionStyle {
-                        $breakpointStyleName: $breakpointStyleValue;
+                    @each $baseProperty, $baseValue in map.get($propStyle, 'base') {
+                        #{$baseProperty}: $baseValue;
+                    }
+                    @each $childProperty, $childValue in map.get($propStyle, 'child') {
+                        & > * {
+                            #{$childProperty}: $childValue;
+                        }
                     }
                 }
             }
