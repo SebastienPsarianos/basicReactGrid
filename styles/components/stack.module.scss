@@ -2,8 +2,8 @@
 
 @import "../variables.scss";
 @import "../mixins.scss";
- 
-$propStyles: (
+
+$breakpointStyles: (
     "sm": (
         "child": (
             "padding-bottom": map.get($spacing, "sm")
@@ -12,22 +12,22 @@ $propStyles: (
     "md": (
         "child": (
             "padding-bottom": map.get($spacing, "md")
-        )    
+        )
     ),
     "lg": (
         "child": (
             "padding-bottom": map.get($spacing, "lg")
-        )    
+        )
     ),
     "xl": (
         "child": (
             "padding-bottom": map.get($spacing, "xl")
-        )    
+        )
     ),
     "xxl": (
         "child": (
             "padding-bottom": map.get($spacing, "xxl")
-        )    
+        )
     )
 );
 
@@ -35,4 +35,4 @@ $propStyles: (
     color: black;
 }
 
-@include breakpointPropClasses('stack', $propStyles);
+@include breakpointPropClasses('stack', $breakpointStyles);

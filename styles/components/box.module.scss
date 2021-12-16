@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@import "../variables";
+@import "../mixins";
+
+.box  {
+    display: block;
+    width: 100%;
+}
+
+$paddingXStyles: ();
+@each $spacingName, $spacingValue in $spacing {
+    $paddingXStyles: map-merge($paddingXStyles, (
+        $spacingName: (
+            "base": (
+                "padding-left": $spacingValue,
+                "padding-right": $spacingValue
+            )
+        )
+    ));
+}
+
+$paddingYStyles: ();
+@each $spacingName, $spacingValue in $spacing {
+    $paddingYStyles: map-merge($paddingYStyles, (
+        $spacingName: (
+            "base": (
+                "padding-top": $spacingValue,
+                "padding-bottom": $spacingValue
+            )
+        )
+    ));
+}
+
+
+
+@include breakpointPropClasses('box-paddingX', '$paddingXStyles');
+@include breakpointPropClasses('box-paddingY', '$paddingYStyles');

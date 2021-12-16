@@ -1,11 +1,39 @@
+@use 'sass:map';
 @import "../variables.scss";
 @import "../mixins.scss";
- 
-.gridItem{
 
+
+$columnWidths: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12;
+
+@each $i in $columnWidths {
+    .gridItem-#{$i} {
+        width: 100%;
+        @include up('md') {
+            max-width: calc((100% - map.get($spacing, 'md') * 2 ) * ($i / 12));
+        }
+    }
 }
 
-.gridContainer{
+.gridContainer {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 
+    max-width: map.get($contentWidth, 'default');
+    @include up('sm') {
+        max-width: map.get($contentWidth, 'sm');
+    }
+    @include up('md') {
+        max-width: map.get($contentWidth, 'md');
+    }
+    @include up('lg') {
+        max-width: map.get($contentWidth, 'lg');
+    }
+    @include up('xl') {
+        max-width: map.get($contentWidth, 'xl');
+    }
+    @include up('xxl') {
+        max-width: map.get($contentWidth, 'xxl');
+    }
 }
