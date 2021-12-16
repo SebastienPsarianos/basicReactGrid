@@ -32,7 +32,6 @@ $breakpointStyles: (
 );
 
 .stack {
-    color: black;
 }
 
 @include breakpointPropClasses('stack', $breakpointStyles);

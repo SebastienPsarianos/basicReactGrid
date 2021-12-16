@@ -15,7 +15,7 @@ $breakpoints: (
     "md": 768px,
     "lg": 992px,
     "xl": 1200px,
-    "xxl": 1400px    
+    "xxl": 1400px
 );
 
 $contentWidth: (
@@ -27,12 +27,12 @@ $contentWidth: (
     "xxl": calc(map.get($breakpoints, "xxl") - map.get($spacing, "md") * 2),
 );
 
-$colors: (
+$colours: (
     "gray": #ACADBC,
     "lightShade": #9B9ECE,
     "midShade": #6665DD,
     "darkShade": #473BF0,
-    "black": #000500,   
+    "black": #000500,
 );
 
 $fontSizes: (

@@ -11,10 +11,10 @@
 $paddingXStyles: ();
 @each $spacingName, $spacingValue in $spacing {
     $paddingXStyles: map-merge($paddingXStyles, (
-        $spacingName: (
+        #{$spacingName}: (
             "base": (
-                "padding-left": $spacingValue,
-                "padding-right": $spacingValue
+                "padding-left": #{$spacingValue},
+                "padding-right": #{$spacingValue}
             )
         )
     ));
@@ -25,14 +25,12 @@ $paddingYStyles: ();
     $paddingYStyles: map-merge($paddingYStyles, (
         $spacingName: (
             "base": (
-                "padding-top": $spacingValue,
-                "padding-bottom": $spacingValue
+                "padding-top": #{$spacingValue},
+                "padding-bottom": #{$spacingValue}
             )
         )
     ));
 }
 
-
-
-@include breakpointPropClasses('box-paddingX', '$paddingXStyles');
-@include breakpointPropClasses('box-paddingY', '$paddingYStyles');
+@include breakpointPropClasses('box-paddingX', $paddingXStyles);
+@include breakpointPropClasses('box-paddingY', $paddingYStyles);

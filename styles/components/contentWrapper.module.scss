@@ -2,27 +2,26 @@
 
 @import "../variables.scss";
 @import "../mixins.scss";
- 
+
 .contentWrapper {
     & > * {
         margin: 0 auto;
-        background: map.get($colors, "lightShade");
-        max-width: map.get($breakpoints, "default");
+        max-width: map.get($contentWidth, "default");
 
         @include up("sm") {
-            max-width: map.get($contentWidth, "sm"); 
+            max-width: map.get($contentWidth, "sm");
         }
         @include up("md") {
-            max-width: map.get($contentWidth, "md"); 
+            max-width: map.get($contentWidth, "md");
         }
         @include up("lg") {
-            max-width: map.get($contentWidth, "lg"); 
+            max-width: map.get($contentWidth, "lg");
         }
         @include up("xl") {
-            max-width: map.get($contentWidth, "xl"); 
+            max-width: map.get($contentWidth, "xl");
         }
         @include up("xxl") {
-            max-width: map.get($contentWidth, "xxl"); 
+            max-width: map.get($contentWidth, "xxl");
         }
     }
 }
