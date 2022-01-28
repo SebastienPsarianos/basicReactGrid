@@ -1,1 +1,1 @@
-export { getClassNameList } from "./getClassNameList"
+export { useResponsiveProp } from "./handleProps"

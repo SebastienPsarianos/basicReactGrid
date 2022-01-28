@@ -1,5 +1,8 @@
-import boxClasses from "../styles/components/box.module.scss"
-
-export const Box = ({ children }) => {
-    return <div>{children}</div>
+export const Box = ({ className, style, children }, ...props) => {
+    console.log(className)
+    return (
+        <div className={className}>
+            <div style={style}>{children}</div>
+        </div>
+    )
 }

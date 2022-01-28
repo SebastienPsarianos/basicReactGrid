@@ -1,18 +1,14 @@
-import { useState, useEffect } from "react"
+import stackStyles, { stack } from "../styles/components/stack.module.scss"
 
-import stackClasses, { stack } from "../styles/components/stack.module.scss"
-import { getClassNameList } from "../utilities/getClassNameList"
+import { Box } from "./Box"
+import { useResponsiveProp } from "../utilities/"
 
-export const Stack = ({ children, space = "md" }) => {
-    const [classNameList, setClassNameList] = useState([])
+export const Stack = ({ children, space = "md", style }) => {
+    const stackHeights = useResponsiveProp(space, "stack", stackStyles)
 
-    useEffect(() => {
-        setClassNameList(
-            getClassNameList(space, "stack")
-                .map((className) => stackClasses[className])
-                .join(" ")
-        )
-    }, [space])
-
-    return <div className={stack + " " + classNameList}>{children}</div>
+    return (
+        <Box style={style} className={`${stack} ${stackHeights}`}>
+            {children}
+        </Box>
+    )
 }

@@ -2,13 +2,13 @@
 @import "./variables.scss";
 
 @mixin up($breakpoint) {
-    @media (min-width: map.get($breakpoints, $breakpoint)) { 
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
         @content;
     }
 }
 
 // Creates a list of classes that can be used to apply different styling to each breakpoint.
-@mixin breakpointPropClasses($baseClassName, $propStyles) { 
+@mixin responsivePropClasses($baseClassName, $propStyles) {
     //Default Breakpoint (< 556px)
     @each $propStyleName, $propStyle in $propStyles {
         .#{$baseClassName}-#{$propStyleName} {

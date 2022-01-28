@@ -32,6 +32,9 @@ $breakpointStyles: (
 );
 
 .stack {
+    :last-child {
+        padding-bottom: 0;
+    }
 }
 
-@include breakpointPropClasses('stack', $breakpointStyles);
+@include responsivePropClasses('stack', $breakpointStyles);

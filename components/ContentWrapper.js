@@ -1,5 +1,8 @@
 import { contentWrapper } from "../styles/components/contentWrapper.module.scss"
+import { Box } from "./Box"
 
-export const ContentWrapper = ({ children }) => (
-    <div className={contentWrapper}>{children}</div>
+export const ContentWrapper = ({ children, style }) => (
+    <Box style={style} className={contentWrapper}>
+        {children}
+    </Box>
 )

@@ -2,22 +2,50 @@
 @import "../variables.scss";
 @import "../mixins.scss";
 
-
-$columnWidths: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12;
-
-@each $i in $columnWidths {
-    .gridItem-#{$i} {
-        width: 100%;
-        background-color: map.get($colours, 'gray');
-        @include up('md') {
-            max-width: calc(100%  * ($i / 12));
-        }
-    }
-}
-
 .gridContainer {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
 }
+.gridItem {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+$columnStyles: ();
+@each $columnWidth in $columnWidths {
+    $columnStyles: map-merge($columnStyles, ($columnWidth: (
+        "base": (
+            padding: 0,
+            max-width: calc(100%  * ($columnWidth / 12))
+        ),
+    )))
+}
+@include responsivePropClasses('gridItem', $columnStyles);
+
+$hSpacingStyles: ();
+@each $spaceName, $space in $spacing {
+    $hSpacingStyles: map-merge($hSpacingStyles, ($spaceName: (
+        "base": (
+            margin-right: -#{$space}
+        ),
+        "child": (
+            padding-right: #{$space}
+        )
+    )))
+}
+@include responsivePropClasses('gridContainer-hSpacing', $hSpacingStyles);
+
+
+$vSpacingStyles: ();
+@each $spaceName, $space in $spacing {
+    $vSpacingStyles: map-merge($vSpacingStyles, ($spaceName: (
+        "base": (
+            margin-bottom: -#{$space}
+        ),
+        "child": (
+            padding-bottom: #{$space}
+        )
+    )))
+}
+@include responsivePropClasses('gridContainer-vSpacing', $vSpacingStyles);

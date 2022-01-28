@@ -5,7 +5,6 @@
 
 .box  {
     display: block;
-    width: 100%;
 }
 
 $paddingXStyles: ();
@@ -32,5 +31,5 @@ $paddingYStyles: ();
     ));
 }
 
-@include breakpointPropClasses('box-paddingX', $paddingXStyles);
-@include breakpointPropClasses('box-paddingY', $paddingYStyles);
+@include responsivePropClasses('box-paddingX', $paddingXStyles);
+@include responsivePropClasses('box-paddingY', $paddingYStyles);
